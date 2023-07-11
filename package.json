@@ -1,7 +1,7 @@
 {
   "name": "@eduzz/ui-antd-hooks",
-  "description": "Eduzz Hooks: Promises",
-  "version": "0.0.4",
+  "description": "Eduzz Hooks: AntD",
+  "version": "0.0.2",
   "keywords": [
     "antd",
     "react-hooks",
@@ -30,6 +30,10 @@
     "update-deps": "yarn ncu -u"
   },
   "dependencies": {
+    "@ant-design/icons": "^5.1.4",
+    "@eduzz/ui-hooks-promises": "^0.0.4",
+    "@eduzz/ui-hooks-query": "^0.0.2",
+    "antd": "^5.7.0",
     "lodash-es": "^4"
   },
   "devDependencies": {
