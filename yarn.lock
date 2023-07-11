@@ -76,17 +76,17 @@
   resolved "https://registry.yarnpkg.com/@eduzz/eslint-config/-/eslint-config-1.0.0.tgz#97180c2b37e1be93977f91725e4e9759cd3422b3"
   integrity sha512-Q2PMV1ddPI6ECdOpCiaAf4UxVo4Sf4usImvGRfQybDKzMDxUPHEocIMRjUe8ULPNfAnaV9Zgw20oGtUEUhkACg==
 
-"@eduzz/ui-hooks-promises@^0.0.4":
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/@eduzz/ui-hooks-promises/-/ui-hooks-promises-0.0.4.tgz#84d94f1abdee439d614d258d5949bd7fc04dc75a"
-  integrity sha512-7TZ+9a81oM8PC3vPpTSzeeWUt7j47Cj47YhgoRqhpmv1ucV6oCdSxA/RXSVaf80syDj4RQf/mLOVr9Eg4Lk41w==
+"@eduzz/ui-hooks-promises@^0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@eduzz/ui-hooks-promises/-/ui-hooks-promises-0.0.5.tgz#4d69c5a276c00371dbf8fbb2c991a011b6b33e3e"
+  integrity sha512-+lNTh7Qeq2u8b7EdsCNdviMrkX0Gh8+VDYSzQU264ckhAsqQB4QmkfbDaqoq/xYxEtRFZZo32WRM1+0ojbXgmQ==
   dependencies:
     lodash-es "^4"
 
-"@eduzz/ui-hooks-query@^0.0.2":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@eduzz/ui-hooks-query/-/ui-hooks-query-0.0.2.tgz#f3f3ba00c0d59c7dea661d1edb8ca133451a12bd"
-  integrity sha512-aTyNEBv3J46OoibqtDo5bZIEcQOAGuc2JExDw+RtynR9mzsqgcYIyFhe7EqQZ1su7PeItVdMbkuOHRPBhZzt7g==
+"@eduzz/ui-hooks-query@^0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@eduzz/ui-hooks-query/-/ui-hooks-query-0.0.3.tgz#1c7e67c0012c23b37bdb56031df53afd56e166d5"
+  integrity sha512-QgmcwE/57zoBcVqYFlhHsQMxhLwzjXUNRFm/UrJGBYw0vYj9LH6BL7Zq6edkpu4rWiSN2LNpX/UAhB5aFkqDWg==
   dependencies:
     "@tanstack/react-query" "^4"
     lodash-es "^4"

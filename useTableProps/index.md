@@ -1,4 +1,4 @@
-# useAntdTableProps
+# useTableProps
 
 Hook para facilitar o uso da table do Antd
 
@@ -16,7 +16,7 @@ const request = usePromisePaginated({
   // ...
 });
 
-const antdTableProps = useAntdTableProps(request, {
+const antdTableProps = useTableProps(request, {
   minWidth: 500,
   columns: [
     { title: 'Nome', dataIndex: 'name' },

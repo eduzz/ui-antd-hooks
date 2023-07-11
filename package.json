@@ -1,7 +1,7 @@
 {
   "name": "@eduzz/ui-antd-hooks",
   "description": "Eduzz Hooks: AntD",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "keywords": [
     "antd",
     "react-hooks",
@@ -31,8 +31,8 @@
   },
   "dependencies": {
     "@ant-design/icons": "^5.1.4",
-    "@eduzz/ui-hooks-promises": "^0.0.4",
-    "@eduzz/ui-hooks-query": "^0.0.2",
+    "@eduzz/ui-hooks-promises": "^0.0.5",
+    "@eduzz/ui-hooks-query": "^0.0.3",
     "antd": "^5.7.0",
     "lodash-es": "^4"
   },

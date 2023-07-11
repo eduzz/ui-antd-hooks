@@ -1,3 +1,3 @@
-import useAntdTablePropsExport from './useAntdTableProps';
+import useTablePropsExport from './useTableProps';
 
-export const useAntdTableProps = useAntdTablePropsExport;
+export const useTableProps = useTablePropsExport;

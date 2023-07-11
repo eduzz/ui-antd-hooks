@@ -13,4 +13,4 @@ yarn add @eduzz/ui-antd-hooks
 
 ## Hooks
 
-- [useAntdTableProps](https://github.com/eduzz/ui-antd-hooks/blob/master/useAntdTableProps/index.md).
+- [useTableProps](https://github.com/eduzz/ui-antd-hooks/blob/master/useTableProps/index.md).

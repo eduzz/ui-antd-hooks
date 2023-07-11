@@ -20,17 +20,17 @@ import generatePagination from './generatePagination';
 
 export type PaginationParams = PaginationParamsPromise & PaginationParamsQuery;
 
-export type UseAntTableAction<R> = Array<Omit<MenuItemType, 'onClick'> & { onClick: (item: R) => void }>;
+export type UseTableAction<R> = Array<Omit<MenuItemType, 'onClick'> & { onClick: (item: R) => void }>;
 
-export type UseAntdTableProps<R> = {
+export type UseTableProps<R> = {
   minWidth?: number;
   columns?: TableColumnType<R>[];
-  actions?: UseAntTableAction<R> | ((item: R) => UseAntTableAction<R>);
+  actions?: UseTableAction<R> | ((item: R) => UseTableAction<R>);
 };
 
-export default function useAntdTableProps<P extends PaginationParams, R>(
+export default function useTableProps<P extends PaginationParams, R>(
   data: UseQueryResult<Array<R>> | UseQueryPaginatedResult<P, R> | UsePromisePaginated<P, R>,
-  { minWidth, columns, actions }: UseAntdTableProps<R>
+  { minWidth, columns, actions }: UseTableProps<R>
 ): TableProps<R> {
   const queryData = data as Partial<UseQueryResult<Array<R>>>;
   const queryPaginatedData = data as Partial<UseQueryPaginatedResult<P, R>>;

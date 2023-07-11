@@ -2,11 +2,11 @@ import { EllipsisOutlined } from '@ant-design/icons';
 import { Button, Dropdown, TableColumnType, Tooltip } from 'antd';
 import { MenuItemType } from 'antd/lib/menu/hooks/useItems';
 
-import type { UseAntdTableProps } from '.';
+import type { UseTableProps } from '.';
 
 export default function generateColumns<R>(
   columns: TableColumnType<R>[] | undefined,
-  actions: UseAntdTableProps<R>['actions']
+  actions: UseTableProps<R>['actions']
 ) {
   return [
     ...(columns ?? []),
