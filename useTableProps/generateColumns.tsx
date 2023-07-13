@@ -11,9 +11,10 @@ export default function generateColumns<R>(
   return [
     ...(columns ?? []),
     ...(actions
-      ? [
+      ? ([
           {
             title: 'Ações',
+            width: 80,
             fixed: 'right' as const,
             className: 'houston-table-action',
             render: (_: any, item: R) => {
@@ -49,7 +50,7 @@ export default function generateColumns<R>(
               );
             }
           }
-        ]
+        ] as TableColumnType<any>[])
       : [])
   ];
 }
