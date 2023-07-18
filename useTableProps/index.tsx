@@ -24,7 +24,7 @@ export type UseTableAction<R> = Array<Omit<MenuItemType, 'onClick'> & { onClick:
 
 export type UseTableProps<R> = {
   minWidth?: number;
-  columns?: TableColumnType<R>[];
+  columns?: Array<TableColumnType<R> & { hidden?: boolean }>;
   actions?: UseTableAction<R> | ((item: R) => UseTableAction<R>);
 };
 
