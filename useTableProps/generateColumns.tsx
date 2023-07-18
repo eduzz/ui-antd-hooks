@@ -5,11 +5,11 @@ import { MenuItemType } from 'antd/lib/menu/hooks/useItems';
 import type { UseTableProps } from '.';
 
 export default function generateColumns<R>(
-  columns: TableColumnType<R>[] | undefined,
+  columns: Array<TableColumnType<R> & { hidden?: boolean }> | undefined,
   actions: UseTableProps<R>['actions']
 ) {
   return [
-    ...(columns ?? []),
+    ...(columns ?? []).filter(c => !c.hidden),
     ...(actions
       ? ([
           {

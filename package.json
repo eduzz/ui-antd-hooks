@@ -1,7 +1,7 @@
 {
   "name": "@eduzz/ui-antd-hooks",
   "description": "Eduzz Hooks: AntD",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "keywords": [
     "antd",
     "react-hooks",
