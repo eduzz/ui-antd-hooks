@@ -54,7 +54,7 @@ export default function useTableProps<P extends PaginationParams, R>(
             filters,
             page: pagination.current ?? current.page,
             perPage: pagination.pageSize ?? current.perPage,
-            sortField: sort.field,
+            sortField: !sort.order ? undefined : sort.field,
             sortDirection: sort.order === 'ascend' ? 'asc' : sort.order === 'descend' ? 'desc' : undefined
           }) as Partial<P>
       );
