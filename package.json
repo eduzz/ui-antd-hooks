@@ -1,7 +1,7 @@
 {
   "name": "@eduzz/ui-antd-hooks",
   "description": "Eduzz Hooks: AntD",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "keywords": [
     "antd",
     "react-hooks",
@@ -30,15 +30,17 @@
     "update-deps": "yarn ncu -u"
   },
   "dependencies": {
-    "@ant-design/icons": "^5.1.4",
-    "@eduzz/ui-hooks-promises": "^0.0.5",
-    "@eduzz/ui-hooks-query": "^0.0.3",
-    "antd": "^5.7.0",
-    "lodash-es": "^4"
+    "antd": "^5",
+    "@eduzz/ui-hooks-promises": "^1",
+    "@eduzz/ui-hooks-query": "^1",
+    "@ant-design/icons": "^5"
+  },
+  "peerDependencies": {
+    "antd": "^5",
+    "@ant-design/icons": "^5"
   },
   "devDependencies": {
     "@eduzz/eslint-config": "^1.0.0",
-    "@types/lodash-es": "^4",
     "@types/react": "^18.2.14",
     "@types/react-dom": "^18.2.6",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
