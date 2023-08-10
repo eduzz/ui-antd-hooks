@@ -24,13 +24,15 @@ export type UseTableAction<R> = Array<Omit<MenuItemType, 'onClick'> & { onClick:
 
 export type UseTableProps<R> = {
   minWidth?: number;
+  emptyMessage?: string;
+  errorFormatter?: (err: any) => string;
   columns?: Array<TableColumnType<R> & { hidden?: boolean }>;
   actions?: UseTableAction<R> | ((item: R) => UseTableAction<R>);
 };
 
 export default function useTableProps<P extends PaginationParams, R>(
   data: UseQueryResult<Array<R>> | UseQueryPaginatedResult<P, R> | UsePromisePaginated<P, R>,
-  { minWidth, columns, actions }: UseTableProps<R>
+  { minWidth, columns, actions, emptyMessage, errorFormatter }: UseTableProps<R>
 ): TableProps<R> {
   const queryData = data as Partial<UseQueryResult<Array<R>>>;
   const queryPaginatedData = data as Partial<UseQueryPaginatedResult<P, R>>;
@@ -71,6 +73,6 @@ export default function useTableProps<P extends PaginationParams, R>(
     dataSource: isError ? [] : result,
     showSorterTooltip: true,
     pagination: generatePagination<P>(total, isLoading, params),
-    locale: generateLocale(isError, refresh)
+    locale: generateLocale(isError ? queryData.error : null, refresh, emptyMessage, errorFormatter)
   };
 }

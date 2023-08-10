@@ -1,12 +1,18 @@
 import { Button, Empty, Result } from 'antd';
 
-export default function generateLocale(isError: boolean, refresh: (() => void) | undefined) {
+export default function generateLocale(
+  error: any,
+  refresh: (() => void) | undefined,
+  emptyMessage?: string,
+  errorFormatter?: (err: any) => string
+) {
   return {
-    emptyText: isError ? (
+    emptyText: error ? (
       <>
         <Result
           status={500}
           title='Um problema aconteceu'
+          subTitle={errorFormatter?.(error)}
           extra={
             <Button type='default' onClick={() => refresh?.()}>
               Tentar Novamente
@@ -15,7 +21,7 @@ export default function generateLocale(isError: boolean, refresh: (() => void) |
         />
       </>
     ) : (
-      <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
+      <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description={emptyMessage} />
     )
   };
 }
