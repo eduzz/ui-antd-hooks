@@ -19,7 +19,9 @@ export default function generateColumns<R>(
           {
             title: actionRefresh ? (
               <div className='houston-table-action-refresh'>
-                <Button icon={<ReloadOutlined />} type='text' shape='circle' onClick={actionRefresh} />
+                <Tooltip title='Atualizar' trigger={['hover']} placement='bottomRight'>
+                  <Button icon={<ReloadOutlined />} type='text' shape='circle' onClick={actionRefresh} />
+                </Tooltip>
               </div>
             ) : (
               actionTitle ?? 'Ações'
