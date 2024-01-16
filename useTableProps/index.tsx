@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { ReactNode, useCallback } from 'react';
 
 import type { TableProps, TableColumnType } from 'antd';
 import type { MenuItemType } from 'antd/lib/menu/hooks/useItems';
@@ -27,12 +27,13 @@ export type UseTableProps<R> = {
   emptyMessage?: string;
   errorFormatter?: (err: any) => string;
   columns?: Array<TableColumnType<R> & { hidden?: boolean }>;
+  actionTitle?: ReactNode;
   actions?: UseTableAction<R> | ((item: R) => UseTableAction<R>);
 };
 
 export default function useTableProps<P extends PaginationParams, R>(
   data: UseQueryResult<Array<R>> | UseQueryPaginatedResult<P, R> | UsePromisePaginated<P, R>,
-  { minWidth, columns, actions, emptyMessage, errorFormatter }: UseTableProps<R>
+  { minWidth, columns, actions, actionTitle, emptyMessage, errorFormatter }: UseTableProps<R>
 ): TableProps<R> {
   const queryData = data as Partial<UseQueryResult<Array<R>>>;
   const queryPaginatedData = data as Partial<UseQueryPaginatedResult<P, R>>;
@@ -68,7 +69,7 @@ export default function useTableProps<P extends PaginationParams, R>(
     scroll: minWidth ? { x: minWidth } : undefined,
     loading: isLoading,
     rowKey: 'id',
-    columns: generateColumns<R>(columns, actions),
+    columns: generateColumns<R>(columns, actions, actionTitle),
     onChange: mergeParams ? handleAntdChange : undefined,
     dataSource: isError ? [] : result,
     showSorterTooltip: true,

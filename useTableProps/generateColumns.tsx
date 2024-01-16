@@ -1,3 +1,5 @@
+import { ReactNode } from 'react';
+
 import { EllipsisOutlined } from '@ant-design/icons';
 import { Button, Dropdown, TableColumnType, Tooltip } from 'antd';
 import { MenuItemType } from 'antd/lib/menu/hooks/useItems';
@@ -6,14 +8,15 @@ import type { UseTableProps } from '.';
 
 export default function generateColumns<R>(
   columns: Array<TableColumnType<R> & { hidden?: boolean }> | undefined,
-  actions: UseTableProps<R>['actions']
+  actions: UseTableProps<R>['actions'],
+  actionTitle: ReactNode | undefined | null
 ) {
   return [
     ...(columns ?? []).filter(c => !c.hidden),
     ...(actions
       ? ([
           {
-            title: 'Ações',
+            title: actionTitle ?? 'Ações',
             width: 80,
             fixed: 'right' as const,
             className: 'houston-table-action',
