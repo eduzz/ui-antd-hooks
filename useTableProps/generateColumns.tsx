@@ -11,14 +11,14 @@ export default function generateColumns<R>(
   actions: UseTableProps<R>['actions'],
   isLoading: boolean | undefined,
   actionTitle: ReactNode | undefined | null,
-  actionRefresh: boolean | undefined | null
+  refresh: (() => void) | undefined
 ) {
   return [
     ...(columns ?? []).filter(c => !c.hidden),
     ...(actions
       ? ([
           {
-            title: actionRefresh ? (
+            title: refresh ? (
               <div className='houston-table-action-refresh'>
                 <Tooltip
                   title='Atualizar'
@@ -31,7 +31,7 @@ export default function generateColumns<R>(
                     disabled={isLoading}
                     type='text'
                     shape='circle'
-                    onClick={actionRefresh}
+                    onClick={() => refresh()}
                   />
                 </Tooltip>
               </div>

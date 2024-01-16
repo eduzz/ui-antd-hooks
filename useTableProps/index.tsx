@@ -70,7 +70,7 @@ export default function useTableProps<P extends PaginationParams, R>(
     scroll: minWidth ? { x: minWidth } : undefined,
     loading: isLoading,
     rowKey: 'id',
-    columns: generateColumns<R>(columns, actions, isLoading, actionTitle, actionRefresh),
+    columns: generateColumns<R>(columns, actions, isLoading, actionTitle, actionRefresh ? refresh : undefined),
     onChange: mergeParams ? handleAntdChange : undefined,
     dataSource: isError ? [] : result,
     showSorterTooltip: true,
