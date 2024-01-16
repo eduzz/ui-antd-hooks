@@ -9,8 +9,9 @@ import type { UseTableProps } from '.';
 export default function generateColumns<R>(
   columns: Array<TableColumnType<R> & { hidden?: boolean }> | undefined,
   actions: UseTableProps<R>['actions'],
+  isLoading: boolean | undefined,
   actionTitle: ReactNode | undefined | null,
-  actionRefresh: (() => void) | undefined | null
+  actionRefresh: boolean | undefined | null
 ) {
   return [
     ...(columns ?? []).filter(c => !c.hidden),
@@ -19,8 +20,19 @@ export default function generateColumns<R>(
           {
             title: actionRefresh ? (
               <div className='houston-table-action-refresh'>
-                <Tooltip title='Atualizar' trigger={['hover']} placement='bottomRight'>
-                  <Button icon={<ReloadOutlined />} type='text' shape='circle' onClick={actionRefresh} />
+                <Tooltip
+                  title='Atualizar'
+                  trigger={['hover']}
+                  open={isLoading ? false : undefined}
+                  placement='bottomRight'
+                >
+                  <Button
+                    icon={<ReloadOutlined />}
+                    disabled={isLoading}
+                    type='text'
+                    shape='circle'
+                    onClick={actionRefresh}
+                  />
                 </Tooltip>
               </div>
             ) : (

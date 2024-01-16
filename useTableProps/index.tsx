@@ -28,7 +28,7 @@ export type UseTableProps<R> = {
   errorFormatter?: (err: any) => string;
   columns?: Array<TableColumnType<R> & { hidden?: boolean }>;
   actionTitle?: ReactNode;
-  actionRefresh?: () => void;
+  actionRefresh?: boolean;
   actions?: UseTableAction<R> | ((item: R) => UseTableAction<R>);
 };
 
@@ -70,7 +70,7 @@ export default function useTableProps<P extends PaginationParams, R>(
     scroll: minWidth ? { x: minWidth } : undefined,
     loading: isLoading,
     rowKey: 'id',
-    columns: generateColumns<R>(columns, actions, actionTitle, actionRefresh),
+    columns: generateColumns<R>(columns, actions, isLoading, actionTitle, actionRefresh),
     onChange: mergeParams ? handleAntdChange : undefined,
     dataSource: isError ? [] : result,
     showSorterTooltip: true,
