@@ -28,12 +28,13 @@ export type UseTableProps<R> = {
   errorFormatter?: (err: any) => string;
   columns?: Array<TableColumnType<R> & { hidden?: boolean }>;
   actionTitle?: ReactNode;
+  actionRefresh?: () => void;
   actions?: UseTableAction<R> | ((item: R) => UseTableAction<R>);
 };
 
 export default function useTableProps<P extends PaginationParams, R>(
   data: UseQueryResult<Array<R>> | UseQueryPaginatedResult<P, R> | UsePromisePaginated<P, R>,
-  { minWidth, columns, actions, actionTitle, emptyMessage, errorFormatter }: UseTableProps<R>
+  { minWidth, columns, actions, actionTitle, actionRefresh, emptyMessage, errorFormatter }: UseTableProps<R>
 ): TableProps<R> {
   const queryData = data as Partial<UseQueryResult<Array<R>>>;
   const queryPaginatedData = data as Partial<UseQueryPaginatedResult<P, R>>;
@@ -69,7 +70,7 @@ export default function useTableProps<P extends PaginationParams, R>(
     scroll: minWidth ? { x: minWidth } : undefined,
     loading: isLoading,
     rowKey: 'id',
-    columns: generateColumns<R>(columns, actions, actionTitle),
+    columns: generateColumns<R>(columns, actions, actionTitle, actionRefresh),
     onChange: mergeParams ? handleAntdChange : undefined,
     dataSource: isError ? [] : result,
     showSorterTooltip: true,
